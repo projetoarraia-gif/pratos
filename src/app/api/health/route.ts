@@ -13,8 +13,21 @@ export async function GET() {
     });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : String(e);
+    const stack = e instanceof Error ? e.stack : "";
+    const cause =
+      e instanceof Error && e.cause
+        ? e.cause instanceof Error
+          ? e.cause.message
+          : String(e.cause)
+        : undefined;
     return Response.json(
-      { ok: false, error: msg, envSet: !!process.env.DATABASE_URL },
+      {
+        ok: false,
+        error: msg,
+        cause,
+        stack: stack?.split("\n").slice(0, 3).join("\\n"),
+        envSet: !!process.env.DATABASE_URL,
+      },
       { status: 500 }
     );
   }
