@@ -64,6 +64,10 @@ export default function RelatoriosPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
+  const [filtroDepartamento, setFiltroDepartamento] = useState("");
+  const filteredParticipantes = filtroDepartamento
+    ? participantes.filter(p => p.departamento === filtroDepartamento)
+    : participantes;
 
   useEffect(() => {
     const admin = localStorage.getItem("admin");
@@ -432,11 +436,24 @@ export default function RelatoriosPage() {
 
         {/* Preview Table */}
         <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-          <div className="p-6 border-b border-slate-200">
+          <div className="p-6 border-b border-slate-200 flex flex-wrap items-center justify-between gap-4">
             <h3 className="text-lg font-bold text-slate-800">👁️ Pré-visualização dos Dados</h3>
+            <div className="flex items-center gap-2">
+              <label className="text-sm font-semibold text-slate-600">Departamento:</label>
+              <select
+                value={filtroDepartamento}
+                onChange={e => setFiltroDepartamento(e.target.value)}
+                className="px-3 py-2 border-2 border-slate-200 rounded-lg focus:border-red-500 outline-none transition-all bg-white text-sm"
+              >
+                <option value="">Todos</option>
+                {Object.entries(departamentos).map(([value, label]) => (
+                  <option key={value} value={value}>{label}</option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          {participantes.length === 0 ? (
+          {filteredParticipantes.length === 0 ? (
             <div className="p-12 text-center text-slate-400">
               <span className="text-6xl">📭</span>
               <p className="mt-4 text-lg">Nenhum participante cadastrado ainda</p>
@@ -455,7 +472,7 @@ export default function RelatoriosPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {participantes.slice(0, 10).map(part => (
+                  {filteredParticipantes.slice(0, 10).map(part => (
                     <tr key={part.id} className="hover:bg-slate-50 transition-colors">
                       <td className="px-4 py-3 font-medium text-slate-800">{part.nome}</td>
                       <td className="px-4 py-3 text-sm text-slate-600">{getDeptLabel(part.departamento)}</td>
@@ -483,9 +500,9 @@ export default function RelatoriosPage() {
                   ))}
                 </tbody>
               </table>
-              {participantes.length > 10 && (
+              {filteredParticipantes.length > 10 && (
                 <div className="p-4 text-center text-slate-500 text-sm">
-                  Exibindo 10 de {participantes.length} participantes. Gere o PDF para ver a lista completa.
+                  Exibindo 10 de {filteredParticipantes.length} participantes. Gere o PDF para ver a lista completa.
                 </div>
               )}
             </div>
