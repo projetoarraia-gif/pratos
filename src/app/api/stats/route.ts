@@ -1,63 +1,41 @@
 import { NextResponse } from "next/server";
-import { db } from "@/db";
-import { participantes, pratos } from "@/db/schema";
-import { eq, sql, count, sum } from "drizzle-orm";
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET() {
   try {
-    // Total confirmed participants
-    const confirmados = await db
-      .select({ count: count() })
-      .from(participantes)
-      .where(eq(participantes.participa, true));
+    const { data: confirmados, error: err1 } = await supabaseAdmin
+      .from("participantes").select("*").eq("participa", true);
+    if (err1) throw err1;
 
-    // Total adults
-    const totalAdultos = await db
-      .select({ total: sum(participantes.adultos) })
-      .from(participantes)
-      .where(eq(participantes.participa, true));
+    const { data: todos, error: err2 } = await supabaseAdmin
+      .from("participantes").select("*");
+    if (err2) throw err2;
 
-    // Total children
-    const totalCriancas = await db
-      .select({ total: sum(participantes.criancas) })
-      .from(participantes)
-      .where(eq(participantes.participa, true));
+    const totalAdultos = (confirmados || []).reduce((s, p) => s + p.adultos, 0);
+    const totalCriancas = (confirmados || []).reduce((s, p) => s + p.criancas, 0);
+    const totalPessoas = (confirmados || []).reduce((s, p) => s + p.total_pessoas, 0);
 
-    // Total dishes chosen
-    const totalPratos = await db
-      .select({ total: sum(participantes.totalPessoas) })
-      .from(participantes)
-      .where(eq(participantes.participa, true));
+    const deptCounts: Record<string, number> = {};
+    (confirmados || []).forEach(p => {
+      deptCounts[p.departamento] = (deptCounts[p.departamento] || 0) + 1;
+    });
 
-    // Participants by department
-    const porDepartamento = await db
-      .select({
-        departamento: participantes.departamento,
-        count: count(),
-      })
-      .from(participantes)
-      .where(eq(participantes.participa, true))
-      .groupBy(participantes.departamento);
-
-    // Dishes statistics
-    const pratosStats = await db.select().from(pratos);
-
-    // Total general (all registrations including non-attending)
-    const totalGeral = await db.select({ count: count() }).from(participantes);
+    const { data: pratosStats, error: err3 } = await supabaseAdmin.from("pratos").select("*");
+    if (err3) throw err3;
 
     return NextResponse.json({
-      confirmados: confirmados[0]?.count || 0,
-      adultos: Number(totalAdultos[0]?.total) || 0,
-      criancas: Number(totalCriancas[0]?.total) || 0,
-      totalPessoas: Number(totalPratos[0]?.total) || 0,
-      totalGeral: totalGeral[0]?.count || 0,
-      porDepartamento: porDepartamento.map(d => ({
-        name: d.departamento.replace(/_/g, " "),
-        value: d.count,
+      confirmados: confirmados?.length || 0,
+      adultos: totalAdultos,
+      criancas: totalCriancas,
+      totalPessoas,
+      totalGeral: todos?.length || 0,
+      porDepartamento: Object.entries(deptCounts).map(([name, value]) => ({
+        name: name.replace(/_/g, " "),
+        value,
       })),
-      pratosStats: pratosStats.map(p => ({
+      pratosStats: (pratosStats || []).map(p => ({
         name: p.nome,
-        escolhidos: p.quantidadeEscolhida,
+        escolhidos: p.quantidade_escolhida,
         limite: p.limite,
       })),
     });
