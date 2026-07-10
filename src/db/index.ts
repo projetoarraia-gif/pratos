@@ -16,6 +16,7 @@ export const pool =
   new Pool({
     connectionString: databaseUrl,
     ssl: { rejectUnauthorized: false },
+    family: 6,
   });
 
 if (process.env.NODE_ENV !== "production") {
