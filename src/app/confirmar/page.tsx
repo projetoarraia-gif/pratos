@@ -335,7 +335,7 @@ export default function ConfirmarPage() {
                         const isFull = prato.quantidadeEscolhida >= prato.limite;
                         return (
                           <option key={prato.id} value={prato.id} disabled={isFull}>
-                            {prato.nome} {isFull ? '(Esgotado)' : `(${prato.quantidadeEscolhida}/${prato.limite})`}
+                            {prato.nome} {isFull ? '(Esgotado)' : ''}
                           </option>
                         );
                       })}
