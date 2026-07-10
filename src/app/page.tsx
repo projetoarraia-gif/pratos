@@ -7,7 +7,7 @@ export default function HomePage() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [config, setConfig] = useState({
     data: "25 de Julho de 2026",
-    horario: "20h",
+    horario: "19h",
     local: "Em frente à Secretaria Municipal de Educação",
   });
 
@@ -114,9 +114,9 @@ export default function HomePage() {
             </div>
 
             {/* Event info */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8">
               <div className="bg-red-50 rounded-xl p-4 text-center border border-red-100">
-                <span className="text-3xl">📅</span>
+                <span className="text-3xl">📆</span>
                 <p className="mt-2 font-semibold text-slate-800">Data</p>
                 <p className="text-red-600 font-bold">{config.data}</p>
               </div>
@@ -125,10 +125,25 @@ export default function HomePage() {
                 <p className="mt-2 font-semibold text-slate-800">Horário</p>
                 <p className="text-amber-600 font-bold">{config.horario}</p>
               </div>
-              <div className="bg-green-50 rounded-xl p-4 text-center border border-green-100">
-                <span className="text-3xl">📍</span>
-                <p className="mt-2 font-semibold text-slate-800">Local</p>
-                <p className="text-green-600 font-bold text-sm">{config.local}</p>
+            </div>
+
+            {/* Sectors */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-4 text-center border border-amber-200 hover:shadow-md transition-shadow">
+                <span className="text-3xl">📦</span>
+                <p className="mt-2 text-xs font-bold text-slate-700 uppercase">Almoxarifado</p>
+              </div>
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 text-center border border-blue-200 hover:shadow-md transition-shadow">
+                <span className="text-3xl">🚛</span>
+                <p className="mt-2 text-xs font-bold text-slate-700 uppercase">Logística</p>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 text-center border border-green-200 hover:shadow-md transition-shadow">
+                <span className="text-3xl">🍽️</span>
+                <p className="mt-2 text-xs font-bold text-slate-700 uppercase">Merenda</p>
+              </div>
+              <div className="bg-gradient-to-br from-red-50 to-rose-50 rounded-xl p-4 text-center border border-red-200 hover:shadow-md transition-shadow">
+                <span className="text-3xl">🏛️</span>
+                <p className="mt-2 text-xs font-bold text-slate-700 uppercase">Prédio SME</p>
               </div>
             </div>
 

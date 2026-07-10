@@ -2,33 +2,10 @@ import { pgTable, serial, text, varchar, integer, boolean, timestamp, pgEnum } f
 
 // Enum for departments
 export const departamentoEnum = pgEnum("departamento", [
-  "Administracao",
-  "Transporte_Escolar",
-  "Tecnologia",
-  "Alimentacao_Escolar",
-  "Pedagogico",
-  "Financeiro",
-  "Recursos_Humanos",
-  "Outro",
-  "CEI_LUIZ_FELIPE",
-  "CEM_SAO_CRISTOVAO",
-  "CEI_ARCO_IRIS",
-  "CEI_BRUNO_LEONARDO",
-  "CEI_DOM_FRANCO",
-  "CEI_MENINO_JESUS",
-  "CEI_NOSSO_LAR",
-  "CEI_VASCO_PAPA",
-  "CEI_CRIANCA_FELIZ",
-  "CEM_GUILHERME",
-  "CEM_ORLANDO_PEREIRA",
-  "EM_MARIA_HILDA",
-  "EM_PAULO_FREIRE",
-  "EM_JOSE_ANCHIETA",
-  "ERM_ALVARES_AZEVEDO",
-  "ERM_CORA_CORALINA",
-  "ERM_EUCLIDES_CUNHA",
-  "ERM_OSVALDO_CRUZ",
-  "ERM_VINICIUS_DE_MORAIS",
+  "Almoxarifado",
+  "Logistica",
+  "Merenda",
+  "Predio_SME",
 ]);
 
 // Pratos (dishes) table

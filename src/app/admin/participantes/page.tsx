@@ -28,38 +28,10 @@ type Prato = {
 };
 
 const departamentos = [
-  // Setoriais
-  { value: "Administracao", label: "Administração" },
-  { value: "Transporte_Escolar", label: "Transporte Escolar" },
-  { value: "Tecnologia", label: "Tecnologia" },
-  { value: "Alimentacao_Escolar", label: "Alimentação Escolar" },
-  { value: "Pedagogico", label: "Pedagógico" },
-  { value: "Financeiro", label: "Financeiro" },
-  { value: "Recursos_Humanos", label: "Recursos Humanos" },
-  { value: "Outro", label: "Outro" },
-  // CEIs - Centros Educacionais Infantis
-  { value: "CEI_LUIZ_FELIPE", label: "CEI Luiz Felipe" },
-  { value: "CEI_ARCO_IRIS", label: "CEI Arco Íris" },
-  { value: "CEI_BRUNO_LEONARDO", label: "CEI Bruno Leonardo" },
-  { value: "CEI_DOM_FRANCO", label: "CEI Dom Franco" },
-  { value: "CEI_MENINO_JESUS", label: "CEI Menino Jesus" },
-  { value: "CEI_NOSSO_LAR", label: "CEI Nosso Lar" },
-  { value: "CEI_VASCO_PAPA", label: "CEI Vasco Papa" },
-  { value: "CEI_CRIANCA_FELIZ", label: "CEI Criança Feliz" },
-  // CEMs - Centros Educacionais Municipais
-  { value: "CEM_SAO_CRISTOVAO", label: "CEM São Cristóvão" },
-  { value: "CEM_GUILHERME", label: "CEM Guilherme" },
-  { value: "CEM_ORLANDO_PEREIRA", label: "CEM Orlando Pereira" },
-  // EMs - Escolas Municipais
-  { value: "EM_MARIA_HILDA", label: "EM Maria Hilda" },
-  { value: "EM_PAULO_FREIRE", label: "EM Paulo Freire" },
-  { value: "EM_JOSE_ANCHIETA", label: "EM José Anchieta" },
-  // ERMs - Escolas Municipais de Referência
-  { value: "ERM_ALVARES_AZEVEDO", label: "ERM Alvares Azevedo" },
-  { value: "ERM_CORA_CORALINA", label: "ERM Cora Coralina" },
-  { value: "ERM_EUCLIDES_CUNHA", label: "ERM Euclides Cunha" },
-  { value: "ERM_OSVALDO_CRUZ", label: "ERM Osvaldo Cruz" },
-  { value: "ERM_VINICIUS_DE_MORAIS", label: "ERM Vinicius de Morais" },
+  { value: "Almoxarifado", label: "Almoxarifado" },
+  { value: "Logistica", label: "Logística" },
+  { value: "Merenda", label: "Merenda" },
+  { value: "Predio_SME", label: "Prédio da SME" },
 ];
 
 export default function ParticipantesPage() {

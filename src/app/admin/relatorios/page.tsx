@@ -29,33 +29,10 @@ type Stats = {
 };
 
 const departamentos: Record<string, string> = {
-  "Administracao": "Administração",
-  "Transporte_Escolar": "Transporte Escolar",
-  "Tecnologia": "Tecnologia",
-  "Alimentacao_Escolar": "Alimentação Escolar",
-  "Pedagogico": "Pedagógico",
-  "Financeiro": "Financeiro",
-  "Recursos_Humanos": "Recursos Humanos",
-  "Outro": "Outro",
-  "CEI_LUIZ_FELIPE": "CEI Luiz Felipe",
-  "CEI_ARCO_IRIS": "CEI Arco Íris",
-  "CEI_BRUNO_LEONARDO": "CEI Bruno Leonardo",
-  "CEI_DOM_FRANCO": "CEI Dom Franco",
-  "CEI_MENINO_JESUS": "CEI Menino Jesus",
-  "CEI_NOSSO_LAR": "CEI Nosso Lar",
-  "CEI_VASCO_PAPA": "CEI Vasco Papa",
-  "CEI_CRIANCA_FELIZ": "CEI Criança Feliz",
-  "CEM_SAO_CRISTOVAO": "CEM São Cristóvão",
-  "CEM_GUILHERME": "CEM Guilherme",
-  "CEM_ORLANDO_PEREIRA": "CEM Orlando Pereira",
-  "EM_MARIA_HILDA": "EM Maria Hilda",
-  "EM_PAULO_FREIRE": "EM Paulo Freire",
-  "EM_JOSE_ANCHIETA": "EM José Anchieta",
-  "ERM_ALVARES_AZEVEDO": "ERM Alvares Azevedo",
-  "ERM_CORA_CORALINA": "ERM Cora Coralina",
-  "ERM_EUCLIDES_CUNHA": "ERM Euclides Cunha",
-  "ERM_OSVALDO_CRUZ": "ERM Osvaldo Cruz",
-  "ERM_VINICIUS_DE_MORAIS": "ERM Vinicius de Morais",
+  "Almoxarifado": "Almoxarifado",
+  "Logistica": "Logística",
+  "Merenda": "Merenda",
+  "Predio_SME": "Prédio da SME",
 };
 
 export default function RelatoriosPage() {
