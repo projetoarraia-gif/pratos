@@ -79,11 +79,6 @@ export default function SucessoPage() {
               ← Voltar para a página inicial
             </Link>
           </div>
-
-          {/* Footer decorations */}
-          <div className="text-center mt-8 text-yellow-200 text-xl space-x-3">
-            <span>💃</span><span>🕺</span><span>🎵</span><span>🎆</span><span>🎊</span>
-          </div>
         </div>
       </div>
 

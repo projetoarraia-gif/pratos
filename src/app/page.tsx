@@ -191,16 +191,6 @@ export default function HomePage() {
               Área Administrativa
             </Link>
           </div>
-
-          {/* Footer decorations */}
-          <div className="text-center mt-8 text-yellow-200 text-2xl space-x-4">
-            <span>🎪</span>
-            <span>🎵</span>
-            <span>🎊</span>
-            <span>💃</span>
-            <span>🕺</span>
-            <span>🎆</span>
-          </div>
         </div>
       </div>
 
