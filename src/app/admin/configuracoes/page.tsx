@@ -9,7 +9,7 @@ export default function ConfiguracoesPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [config, setConfig] = useState({
-    data_evento: "2026-07-24",
+    data_evento: "2026-07-25",
     horario_evento: "20:00",
     local_evento: "Em frente à Secretaria Municipal de Educação",
   });

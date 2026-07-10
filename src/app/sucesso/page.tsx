@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function SucessoPage() {
   const handleWhatsAppShare = () => {
     const message = encodeURIComponent(
-      "🎉 Estarei presente no Arraiá da Educação 2026! 🏫✨\n\n📅 Data: 24 de Julho de 2026\n🕗 Horário: 20h\n📍 Local: Em frente à Secretaria Municipal de Educação\n\nVenha você também! Confirme sua participação!"
+      "🎉 Estarei presente no Arraiá da Educação 2026! 🏫✨\n\n📅 Data: 25 de Julho de 2026\n🕗 Horário: 20h\n📍 Local: Em frente à Secretaria Municipal de Educação\n\nVenha você também! Confirme sua participação!"
     );
     window.open(`https://wa.me/?text=${message}`, "_blank");
   };
@@ -57,7 +57,7 @@ export default function SucessoPage() {
             <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 mb-8 border border-amber-200">
               <p className="text-sm text-slate-500 mb-2">Lembre-se:</p>
               <div className="space-y-2">
-                <p className="text-slate-700">📅 <strong>24 de Julho de 2026</strong></p>
+                <p className="text-slate-700">📅 <strong>25 de Julho de 2026</strong></p>
                 <p className="text-slate-700">🕗 <strong>20h</strong></p>
                 <p className="text-slate-700">📍 <strong>Em frente à Secretaria Municipal de Educação</strong></p>
               </div>

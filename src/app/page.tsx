@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function HomePage() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [config, setConfig] = useState({
-    data: "24 de Julho de 2026",
+    data: "25 de Julho de 2026",
     horario: "20h",
     local: "Em frente à Secretaria Municipal de Educação",
   });
@@ -17,10 +17,10 @@ export default function HomePage() {
       .then(res => res.json())
       .then(data => {
         if (data.data_evento) {
-          const date = new Date(data.data_evento + "T20:00:00");
+          const [year, month, day] = data.data_evento.split("-").map(Number);
           const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
           setConfig({
-            data: `${date.getDate()} de ${months[date.getMonth()]} de ${date.getFullYear()}`,
+            data: `${day} de ${months[month - 1]} de ${year}`,
             horario: data.horario_evento || "20:00",
             local: data.local_evento || "Em frente à Secretaria Municipal de Educação",
           });
@@ -28,7 +28,7 @@ export default function HomePage() {
       })
       .catch(() => {});
 
-    const targetDate = new Date("2026-07-24T20:00:00").getTime();
+    const targetDate = new Date("2026-07-25T20:00:00").getTime();
 
     const interval = setInterval(() => {
       const now = new Date().getTime();

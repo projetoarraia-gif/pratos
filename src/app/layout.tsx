@@ -10,11 +10,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body className="bg-amber-50 text-slate-900 antialiased min-h-screen flex flex-col">
-        <div className="flex-1">{children}</div>
-        <footer className="py-2 text-center text-[10px] text-slate-500 bg-slate-100 border-t border-slate-200">
-          Desenvolvido pelo Departamento de Tecnologia da SME.
-        </footer>
+      <body className="bg-amber-50 text-slate-900 antialiased">
+        {children}
       </body>
     </html>
   );
