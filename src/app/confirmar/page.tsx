@@ -148,7 +148,7 @@ export default function ConfirmarPage() {
   const totalPessoas = Number(formData.adultos) + Number(formData.criancas);
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-red-600 via-amber-500 to-amber-100 relative">
+    <main className="min-h-screen bg-gradient-to-b from-green-800 via-green-600 to-yellow-400 relative">
       {/* Bunting */}
       <div className="absolute top-0 left-0 right-0 h-12 overflow-hidden">
         <svg viewBox="0 0 1200 50" className="w-full h-full" preserveAspectRatio="none">
@@ -165,7 +165,7 @@ export default function ConfirmarPage() {
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-12 pt-16">
         <div className="w-full max-w-xl">
           {/* Back link */}
-          <Link href="/" className="inline-flex items-center text-amber-100 hover:text-white mb-6 transition-colors">
+          <Link href="/" className="inline-flex items-center text-yellow-200 hover:text-white mb-6 transition-colors">
             ← Voltar
           </Link>
 
@@ -402,14 +402,14 @@ export default function ConfirmarPage() {
           </div>
 
           {/* Footer decorations */}
-          <div className="text-center mt-8 text-amber-100 text-xl space-x-3">
+          <div className="text-center mt-8 text-yellow-200 text-xl space-x-3">
             <span>🎶</span><span>🏮</span><span>🎆</span><span>💃</span><span>🕺</span>
           </div>
         </div>
       </div>
 
       {/* Rodapé */}
-      <footer className="py-2 text-center text-[10px] text-amber-200 bg-red-800/50">
+      <footer className="py-2 text-center text-[10px] text-yellow-200 bg-green-900/50">
         Desenvolvido pelo Departamento de Tecnologia da SME.
       </footer>
     </main>

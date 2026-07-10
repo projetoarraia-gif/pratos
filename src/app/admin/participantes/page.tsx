@@ -226,7 +226,7 @@ export default function ParticipantesPage() {
   return (
     <main className="min-h-screen bg-slate-100">
       {/* Header */}
-      <header className="bg-gradient-to-r from-red-700 to-red-600 text-white shadow-lg print:hidden">
+      <header className="bg-gradient-to-r from-green-800 to-green-600 text-white shadow-lg print:hidden">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">

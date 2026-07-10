@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-red-700 via-red-600 to-amber-600 flex items-center justify-center px-4">
+    <main className="min-h-screen bg-gradient-to-br from-green-800 via-green-600 to-yellow-500 flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         <Link href="/" className="inline-flex items-center text-amber-100 hover:text-white mb-6 transition-colors">
           ← Voltar

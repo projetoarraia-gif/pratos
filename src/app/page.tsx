@@ -50,7 +50,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen relative overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-red-600 via-amber-500 to-amber-100" />
+      <div className="absolute inset-0 bg-gradient-to-b from-green-800 via-green-600 to-yellow-400" />
 
       {/* Decorative triangles / bunting */}
       <div className="absolute top-0 left-0 right-0 h-16 overflow-hidden">
@@ -82,7 +82,7 @@ export default function HomePage() {
             <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-full shadow-xl mb-4">
               <span className="text-5xl">🏫</span>
             </div>
-            <p className="text-amber-100 text-sm uppercase tracking-widest font-semibold">
+            <p className="text-yellow-200 text-sm uppercase tracking-widest font-semibold">
               Secretaria Municipal de Educação
             </p>
           </div>
@@ -186,14 +186,14 @@ export default function HomePage() {
           <div className="text-center mt-6">
             <Link
               href="/admin"
-              className="text-amber-100 hover:text-white text-sm underline transition-colors"
+              className="text-yellow-200 hover:text-white text-sm underline transition-colors"
             >
               Área Administrativa
             </Link>
           </div>
 
           {/* Footer decorations */}
-          <div className="text-center mt-8 text-amber-100 text-2xl space-x-4">
+          <div className="text-center mt-8 text-yellow-200 text-2xl space-x-4">
             <span>🎪</span>
             <span>🎵</span>
             <span>🎊</span>
@@ -205,7 +205,7 @@ export default function HomePage() {
       </div>
 
       {/* Rodapé */}
-      <footer className="py-2 text-center text-[10px] text-amber-200 bg-red-800/50">
+      <footer className="py-2 text-center text-[10px] text-yellow-200 bg-green-900/50">
         Desenvolvido pelo Departamento de Tecnologia da SME.
       </footer>
     </main>
