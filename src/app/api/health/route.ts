@@ -9,6 +9,16 @@ export async function GET() {
     return Response.json({ ok: true });
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : String(e);
-    return Response.json({ ok: false, error: msg }, { status: 500 });
+    const cause =
+      e instanceof Error && e.cause
+        ? e.cause instanceof Error
+          ? e.cause.message.substring(0, 200)
+          : String(e.cause).substring(0, 200)
+        : undefined;
+    const stack = e instanceof Error ? e.stack : "";
+    return Response.json(
+      { ok: false, error: msg, cause, stack: stack?.split("\n")[1]?.trim() },
+      { status: 500 }
+    );
   }
 }
