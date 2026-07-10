@@ -1,5 +1,8 @@
+import { setDefaultResultOrder } from "dns";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
+
+setDefaultResultOrder("ipv6first");
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -16,7 +19,6 @@ export const pool =
   new Pool({
     connectionString: databaseUrl,
     ssl: { rejectUnauthorized: false },
-    family: 6,
   });
 
 if (process.env.NODE_ENV !== "production") {
