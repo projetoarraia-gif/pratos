@@ -325,43 +325,21 @@ export default function ConfirmarPage() {
                     <label className="block text-sm font-semibold text-slate-700 mb-2">
                       🍽️ Escolha apenas UM prato típico *
                     </label>
-                    <div className="grid grid-cols-1 gap-3 max-h-64 overflow-y-auto p-2 border-2 border-slate-200 rounded-xl">
+                    <select
+                      value={formData.prato_id}
+                      onChange={e => setFormData({ ...formData, prato_id: Number(e.target.value) })}
+                      className="w-full px-4 py-3 border-2 border-slate-200 rounded-xl focus:border-red-500 focus:ring-2 focus:ring-red-200 outline-none transition-all bg-white"
+                    >
+                      <option value={0}>-- Selecione um prato --</option>
                       {pratos.map(prato => {
                         const isFull = prato.quantidadeEscolhida >= prato.limite;
-                        const isSelected = formData.prato_id === prato.id;
                         return (
-                          <label
-                            key={prato.id}
-                            className={`flex items-center justify-between p-4 rounded-xl border-2 cursor-pointer transition-all ${
-                              isSelected
-                                ? 'border-green-500 bg-green-50'
-                                : isFull
-                                  ? 'border-slate-200 bg-slate-100 opacity-60 cursor-not-allowed'
-                                  : 'border-slate-200 hover:border-amber-300 hover:bg-amber-50'
-                            }`}
-                          >
-                            <input
-                              type="radio"
-                              name="prato"
-                              checked={isSelected}
-                              disabled={isFull}
-                              onChange={() => setFormData({ ...formData, prato_id: prato.id })}
-                              className="sr-only"
-                            />
-                            <span className="font-medium text-slate-700">{prato.nome}</span>
-                            <span className={`text-sm px-3 py-1 rounded-full ${
-                              isFull
-                                ? 'bg-red-100 text-red-600'
-                                : prato.quantidadeEscolhida >= prato.limite * 0.8
-                                  ? 'bg-amber-100 text-amber-700'
-                                  : 'bg-green-100 text-green-700'
-                            }`}>
-                              {isFull ? 'Esgotado' : `${prato.quantidadeEscolhida}/${prato.limite}`}
-                            </span>
-                          </label>
+                          <option key={prato.id} value={prato.id} disabled={isFull}>
+                            {prato.nome} {isFull ? '(Esgotado)' : `(${prato.quantidadeEscolhida}/${prato.limite})`}
+                          </option>
                         );
                       })}
-                    </div>
+                    </select>
                   </div>
 
                   {/* Observações */}
